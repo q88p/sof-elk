@@ -1,0 +1,9 @@
+---
+- name: Install firewalld
+  package: name=firewalld
+
+- name: Enable and start firewalld service
+  service:
+    name: firewalld
+    state: started
+    enabled: yes

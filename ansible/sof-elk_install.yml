@@ -1,0 +1,37 @@
+---
+# This playbook configures a single-instance SOF-ELK(R) system
+
+- name: Setup a single-instance SOF-ELK system
+  hosts: all
+  become_method: sudo
+  become_user: root
+
+  roles:
+    - epel_repo
+    - nux_repo
+    - elastic_repo
+    - firewalld
+    - sof-elk_pre
+    - sof-elk_base
+    - elasticsearch
+    - cerebro
+    - logstash
+    - filebeat
+    - kibana
+    - elastalert
+    - domain_stats
+    - freq
+    - sof-elk_finalize
+
+  tasks:
+  - name: "replace SES input configuration values"
+    # become: yes
+    lineinfile:
+      path: /usr/local/sof-elk/configfiles/0006-input-ses.conf
+      regexp: '{{item.from}}'
+      line: '{{item.to}}'
+    with_items:
+     - { from: '^access_key_id" => "your_access_key_id"', to: 'access_key_id" => "{{ aws_logs_access_key }}"'}
+     - { from: '^secret_access_key" => "your_secret_access_key"', to: 'secret_access_key" => "{{ aws_logs_secret_key }}"'}
+     - { from: '^region" => "your_region"', to: 'region" => "{{ aws_region }}"'}
+     - { from: '^bucket" => "your_bucket"', to: 'bucket" => "{{ log_bucket }}"'}

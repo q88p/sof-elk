@@ -43,5 +43,5 @@ base_yum_packages:
 vmware_yum_packages:
   - open-vm-tools
 
-  base_pip_modules:
+base_pip_modules:
   - elasticsearch

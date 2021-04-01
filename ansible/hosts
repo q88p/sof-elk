@@ -9,5 +9,3 @@
 #   - A hostname/ip can be a member of multiple groups
 
 # Ex 1: Ungrouped hosts, specify before any group headers.
-
-sof-elk_dev ansible_host=192.168.75.172
