@@ -1,9 +1,9 @@
 input {
   s3 {
-    access_key_id => "{ACCESS_KEY}"
-    secret_access_key => "{SECRET_KEY}"
-    region => "{REGION}"
-    bucket => "{BUCKET}"
+    access_key_id => "{{ aws_logs_access_key }}"
+    secret_access_key => "{{ aws_logs_secret_key }}"
+    region => "{{ aws_region }}"
+    bucket => "{{ log_bucket }}"
     interval => "10"
     type => "ses"
     codec => json

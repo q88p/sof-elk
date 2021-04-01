@@ -140,7 +140,7 @@
 
 - name: Check out SOF-ELK repo
   git:
-    repo: 'https://github.com/philhagen/sof-elk'
+    repo: 'https://github.com/q88p/sof-elk'
     dest: '/usr/local/sof-elk'
     update: yes
   tags: sof-elk_base

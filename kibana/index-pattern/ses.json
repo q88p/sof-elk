@@ -1,0 +1,7 @@
+{
+  "attributes": {
+    "title": "ses-*",
+    "timeFieldName": "@timestamp"
+  },
+  "references": []
+}

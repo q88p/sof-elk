@@ -27,6 +27,11 @@
   notify: restart logstash
   tags: sof-elk_logstash
 
+- name: "replace SES input configuration values"
+  - template:
+    src: 0006-input-ses.conf.j2
+    dest: '/usr/local/sof-elk/configfiles/'
+
 - name: Get list of all configfiles
   find:
     paths: '/usr/local/sof-elk/configfiles/'
