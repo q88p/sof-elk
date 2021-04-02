@@ -30,7 +30,7 @@
 - name: "replace SES input configuration values"
   template:
     src: 0006-input-ses.conf.j2
-    dest: '/usr/local/sof-elk/configfiles/'
+    dest: '/usr/local/sof-elk/configfiles/0006-input-ses.conf'
 
 - name: Get list of all configfiles
   find:
